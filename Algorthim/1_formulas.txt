@@ -1,0 +1,6 @@
+sort(v.begin(),v.end()); // sorting
+binary_search(v.begin(),v.end(),x); // true/false
+lower_bound(v.begin(),v.end(),x); // >=x
+upper_bound(v.begin(),v.end(),x); // >x
+next_permutation(v.begin(),v.end()); // next lexicographic
+prev_permutation(v.begin(),v.end());
