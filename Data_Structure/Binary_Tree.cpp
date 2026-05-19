@@ -1,3 +1,22 @@
+/*
+Tree
+-> Binary tree{Binary search tree , AVL Tree(Need balance factor), Red Black Tree(Need Tree Node Colour)}
+// Red black tree rules
+1. Roots && NILL colour always be black
+2. Red colour Node donot have the Red child 
+3. From root to NILL , on all possible path we have same number of count of black Nodes
+// Rule to make them
+1. Perform standard BST and colour nodes as red
+2. if Node is root then colour it black 
+3. Inseration nodes uncle colour
+red-> parent and uncle black, grandparents red ;
+black 4 type of rotation 
+
+-> N-ary Tree(N->child) B and B+ tree 
+->Heap , Trie , Segment Tree ,Fenwick Tree
+*/
+
+
 #include <bits/stdc++.h>
 using namespace std ;
 struct tree{
@@ -30,9 +49,3 @@ int main(){
     travel(a);
     return 0 ;
 }
-/*
-
-
-
-
-*/
