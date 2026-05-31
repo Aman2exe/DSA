@@ -6,13 +6,13 @@ class node{
      bool flag;
      node(){flag=false;}
 };
-class tries{
+class trie{
     public:
     node* root ;
-    void createtries(){
+     trie(){
         root=new node();
     }
-    void inserttries(string &str){
+    void insert(string &str){
         node *temp=root ;
         for(int i=0 ; i<str.size() ; i++){
           if(temp->a[str[i]-'a']==NULL){
@@ -25,7 +25,7 @@ class tries{
         }
         temp->flag=true ;
    }
-    bool containword(string &str){
+    bool search(string &str){
       node *temp=root ;
       for(int i=0 ; i<str.size() ; i++){
         if(temp->a[str[i]-'a']==NULL) return false ;
@@ -34,7 +34,7 @@ class tries{
       if(temp->flag==false) return false ;
       return true ; 
     }
-    bool containpreffix(string &str){
+    bool startswith(string &str){
        node *temp=root ;
        for(int i=0 ; i<str.size() ; i++){
          if(temp->a[str[i]-'a']==NULL) return false ;
@@ -46,13 +46,12 @@ class tries{
 int main() {
       int n ;
       cin>>n ;
-      tries*tt=new tries();
-      tt->createtries();
+      trie*tt=new trie();
       while(n--){
         int i ; string str; cin>>i>>str ;
-        if(i==1) tt->inserttries(str);
-        else if(i==2) cout<<tt->containword(str)<<endl;
-        else cout<<tt->containpreffix(str)<<endl;
+        if(i==1) tt->insert(str);
+        else if(i==2) cout<<tt->search(str)<<endl;
+        else cout<<tt->startswith(str)<<endl;
       }
       return 0 ;
 }

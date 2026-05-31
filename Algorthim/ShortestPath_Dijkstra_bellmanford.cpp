@@ -1,3 +1,4 @@
+// Unweighted Graph
 int shortestpath(int n , vector<vector<int>> &adj , int st , int en){
    vector<int> val(n,n);
    val[st]=0 ;
@@ -16,7 +17,7 @@ int shortestpath(int n , vector<vector<int>> &adj , int st , int en){
    return val[en];  
 }
 
-//-------------------------------------------------------------------------------------------------------------------//
+// Postive Weighted Graph
 
 int Dijkstra(int n , vector<vector<pair<int,int>>> &adj , int st , int en){
    vector<int> val(n,LLONG_MAX);
@@ -35,4 +36,18 @@ int Dijkstra(int n , vector<vector<pair<int,int>>> &adj , int st , int en){
    }
    if(val[en]==LLONG_MAX) return -1 ;
    return val[en];  
+}
+
+// Negative Weighted Graph 
+
+int bellmanFord(int n, vector<pair<pair<int,int>,int>> &adj , int st , int end){
+    vector<int>vec(n+1,INT_MAX/2);
+    vec[st]=0 ;
+    for(int i=1 ; i<=n-1 ; i++){
+        for(auto j : &adj){
+           int u=adj[j].first.first , v=adj[j].first.second , w=adj[j].second ;
+            if (dist[u]!=INT_MAX) vec[v]=min(vec[v],vec[u]+w);
+       }
+    }
+    return vec[en];
 }
